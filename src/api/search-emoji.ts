@@ -16,6 +16,7 @@ export async function searchEmoji(query: string): Promise<string[]> {
     throw 'Empty query';
   }
 
+  let message;
   try {
     const response = await groq.chat.completions.create({
       messages: [
@@ -37,7 +38,7 @@ export async function searchEmoji(query: string): Promise<string[]> {
       stop: null,
     });
 
-    var message = response.choices[0].message.content;
+    message = response.choices[0].message.content;
   } catch (error) {
     console.error('Error query', { error, query, input: safeQuery });
     throw 'Error communicating with LLM';
