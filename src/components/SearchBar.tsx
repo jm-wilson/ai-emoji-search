@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Search, Shuffle } from "lucide-react"
+import { Copy, Search } from "lucide-react"
 
 interface SearchBarProps {
   searchQuery: string
@@ -39,7 +39,7 @@ export default function SearchBar({
           variant="outline"
           className="border-yellow-600 text-yellow-600 hover:bg-yellow-200 hover:text-yellow-700 dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-gray-700 dark:hover:text-yellow-300"
         >
-          <Shuffle className="mr-2 h-4 w-4" />
+          <Copy className="mr-2 h-4 w-4" />
           Pick for me
         </Button>
       </div>
