@@ -63,13 +63,13 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-b from-yellow-50 to-orange-50">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full max-w-md mx-auto text-center space-y-8">
         <div className="space-y-2">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-orange-500">
-            Emoji<span className="text-yellow-500">Finder</span>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-yellow-700 dark:text-yellow-500">
+            Emoji<span className="text-yellow-600 dark:text-yellow-400">Finder</span>
           </h1>
-          <p className="text-gray-600">Find the perfect emoji for any occasion</p>
+          <p className="text-gray-700 dark:text-gray-300">Find the perfect emoji for any occasion</p>
         </div>
 
         <div className="flex flex-col space-y-4">
@@ -80,19 +80,19 @@ export default function Home() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 border-2 border-orange-200 focus-visible:ring-orange-300"
+              className="flex-1 border-2 border-yellow-400 focus-visible:ring-yellow-500 dark:border-gray-700 dark:focus-visible:ring-gray-500"
             />
           </div>
 
           <div className="flex space-x-2 justify-center">
-            <Button onClick={handleSearch} className="bg-orange-500 hover:bg-orange-600">
+            <Button onClick={handleSearch} className="bg-yellow-600 hover:bg-yellow-700 text-white dark:bg-yellow-600 dark:hover:bg-yellow-700">
               <Search className="mr-2 h-4 w-4" />
               Search
             </Button>
             <Button
               onClick={handlePickRandom}
               variant="outline"
-              className="border-orange-500 text-orange-500 hover:bg-orange-100 hover:text-orange-600"
+              className="border-yellow-600 text-yellow-600 hover:bg-yellow-200 hover:text-yellow-700 dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-gray-700 dark:hover:text-yellow-300"
             >
               <Shuffle className="mr-2 h-4 w-4" />
               Pick for me
@@ -101,23 +101,26 @@ export default function Home() {
         </div>
 
         {hasSearched && (
-          <div className="mt-8 p-4 bg-white rounded-lg shadow-md">
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg shadow-md dark:bg-gray-800 dark:shadow-lg">
             {randomEmoji ? (
               <div className="text-center">
                 <div className="text-6xl mb-2">{randomEmoji.emoji}</div>
-                <p className="text-gray-700">{randomEmoji.name}</p>
+                <p className="text-gray-700 dark:text-gray-300">{randomEmoji.name}</p>
               </div>
             ) : searchResults.length > 0 ? (
               <div className="grid grid-cols-3 gap-4">
                 {searchResults.map((emoji, index) => (
-                  <div key={index} className="text-center p-2 hover:bg-orange-50 rounded-md cursor-pointer">
+                  <div
+                    key={index}
+                    className="text-center p-2 hover:bg-yellow-100 rounded-md cursor-pointer dark:hover:bg-gray-700"
+                  >
                     <div className="text-3xl mb-1">{emoji.emoji}</div>
-                    <p className="text-xs text-gray-600 truncate">{emoji.name}</p>
+                    <p className="text-xs text-gray-600 truncate dark:text-gray-400">{emoji.name}</p>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500">No emojis found. Try another search!</p>
+              <p className="text-gray-600 dark:text-gray-400">No emojis found. Try another search!</p>
             )}
           </div>
         )}
