@@ -4,27 +4,41 @@ import { useState } from "react"
 import Header from "@/components/Header"
 import SearchBar from "@/components/SearchBar"
 import Results from "@/components/Results"
+import { searchEmoji } from "@/api/search-emoji"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<string[]>([])
   const [hasSearched, setHasSearched] = useState(false)
 
-  const handleSearch = () => {
+  const validateQuery = () => {
     if (!searchQuery.trim()) {
       setSearchResults([])
       setHasSearched(false)
-      return
+      return false
     }
+    return true
+  }
 
-    const results = [] as string[];
+  const handleSearch = async () => {
+    if (!validateQuery()) return
+
+    const results = await searchEmoji(searchQuery)
 
     setSearchResults(results)
     setHasSearched(true)
   }
 
-  const handlePickRandom = () => {
-    setSearchResults([])
+  const handlePickRandom = async () => {
+    if (!validateQuery()) return
+    
+    const results = await searchEmoji(searchQuery)
+
+    const randomIndex = Math.floor(Math.random() * results.length)
+    const randomEmoji = results[randomIndex]
+    navigator.clipboard.writeText(randomEmoji)
+
+    setSearchResults([randomEmoji])
     setHasSearched(true)
   }
 
