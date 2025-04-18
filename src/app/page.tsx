@@ -53,7 +53,11 @@ export default function Home() {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      handleSearch();
+      if (e.ctrlKey) {
+        handlePickRandom();
+      } else {
+        handleSearch();
+      }
     }
   };
 
