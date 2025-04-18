@@ -30,16 +30,16 @@ export default function SearchBar({
         />
       </div>
       <div className="flex space-x-2 justify-center">
-        <Button onClick={handleSearch} className="bg-yellow-600 hover:bg-yellow-700 text-white dark:bg-yellow-600 dark:hover:bg-yellow-700">
-          <Search className="mr-2 h-4 w-4" />
+        <Button onClick={handleSearch} className="cursor-pointer bg-yellow-600 hover:bg-yellow-700 text-white dark:bg-yellow-600 dark:hover:bg-yellow-700">
+          <Search className="mr-0.5 h-4 w-4" />
           Search
         </Button>
         <Button
           onClick={handlePickRandom}
           variant="outline"
-          className="border-yellow-600 text-yellow-600 hover:bg-yellow-200 hover:text-yellow-700 dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-gray-700 dark:hover:text-yellow-300"
+          className="cursor-pointer border-yellow-600 text-yellow-600 hover:bg-yellow-200 hover:text-yellow-700 dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-gray-700 dark:hover:text-yellow-300"
         >
-          <Copy className="mr-2 h-4 w-4" />
+          <Copy className="mr-0.5 h-4 w-4" />
           Pick for me
         </Button>
       </div>
