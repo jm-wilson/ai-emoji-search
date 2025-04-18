@@ -1,53 +1,53 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import Header from "@/components/Header"
-import SearchBar from "@/components/SearchBar"
-import Results from "@/components/Results"
-import { searchEmoji } from "@/api/search-emoji"
-import { copyToClipboard } from "@/lib/client/copy-to-clipboard"
+import { useState } from 'react';
+import Header from '@/components/Header';
+import SearchBar from '@/components/SearchBar';
+import Results from '@/components/Results';
+import { searchEmoji } from '@/api/search-emoji';
+import { copyToClipboard } from '@/lib/client/copy-to-clipboard';
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState<string[]>([])
-  const [hasSearched, setHasSearched] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const validateQuery = () => {
     if (!searchQuery.trim()) {
-      setSearchResults([])
-      setHasSearched(false)
-      return false
+      setSearchResults([]);
+      setHasSearched(false);
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
   const handleSearch = async () => {
-    if (!validateQuery()) return
+    if (!validateQuery()) return;
 
-    const results = await searchEmoji(searchQuery)
+    const results = await searchEmoji(searchQuery);
 
-    setSearchResults(results)
-    setHasSearched(true)
-  }
+    setSearchResults(results);
+    setHasSearched(true);
+  };
 
   const handlePickRandom = async () => {
-    if (!validateQuery()) return
-    
-    const results = await searchEmoji(searchQuery)
+    if (!validateQuery()) return;
 
-    const randomIndex = Math.floor(Math.random() * results.length)
-    const randomEmoji = results[randomIndex]
-    copyToClipboard(randomEmoji)
+    const results = await searchEmoji(searchQuery);
 
-    setSearchResults([randomEmoji])
-    setHasSearched(true)
-  }
+    const randomIndex = Math.floor(Math.random() * results.length);
+    const randomEmoji = results[randomIndex];
+    copyToClipboard(randomEmoji);
+
+    setSearchResults([randomEmoji]);
+    setHasSearched(true);
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      handleSearch()
+    if (e.key === 'Enter') {
+      handleSearch();
     }
-  }
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-gray-900 dark:to-gray-800">
@@ -60,10 +60,8 @@ export default function Home() {
           handlePickRandom={handlePickRandom}
           handleKeyDown={handleKeyDown}
         />
-        {hasSearched && (
-          <Results searchResults={searchResults} />
-        )}
+        {hasSearched && <Results searchResults={searchResults} />}
       </div>
     </main>
-  )
+  );
 }
