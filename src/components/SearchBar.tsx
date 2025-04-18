@@ -21,6 +21,7 @@ export default function SearchBar({
     <div className="flex flex-col space-y-4">
       <div className="flex w-full max-w-md items-center space-x-2">
         <Input
+          autoFocus
           maxLength={50}
           type="text"
           placeholder="Search for an emoji..."
