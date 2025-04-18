@@ -1,4 +1,5 @@
 import { copyToClipboard } from '@/lib/client/copy-to-clipboard';
+import { Copy } from 'lucide-react';
 
 interface ResultsProps {
   searchResults: string[];
@@ -12,12 +13,15 @@ export default function Results({ searchResults }: ResultsProps) {
           {searchResults.map((emoji, index) => (
             <div
               key={index}
-              className="text-center p-2 hover:bg-yellow-100 rounded-md cursor-pointer dark:hover:bg-gray-700"
+              className="group relative text-center p-2 hover:bg-yellow-100 rounded-md cursor-pointer dark:hover:bg-gray-700"
               onClick={() => {
                 copyToClipboard(emoji);
               }}
             >
               <div className="text-3xl mb-1">{emoji}</div>
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 backdrop-opacity-10 backdrop-blur-sm rounded-md transition-opacity">
+                <Copy className="text-white w-6 h-6 " />
+              </div>
             </div>
           ))}
         </div>
