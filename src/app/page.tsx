@@ -1,9 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Search, Shuffle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import Header from "@/components/Header"
 import SearchBar from "@/components/SearchBar"
 import Results from "@/components/Results"
