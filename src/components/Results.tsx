@@ -1,3 +1,5 @@
+import { copyToClipboard } from '@/lib/client/copy-to-clipboard';
+
 interface ResultsProps {
   searchResults: string[];
 }
@@ -11,6 +13,9 @@ export default function Results({ searchResults }: ResultsProps) {
             <div
               key={index}
               className="text-center p-2 hover:bg-yellow-100 rounded-md cursor-pointer dark:hover:bg-gray-700"
+              onClick={() => {
+                copyToClipboard(emoji);
+              }}
             >
               <div className="text-3xl mb-1">{emoji}</div>
             </div>
