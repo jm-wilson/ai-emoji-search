@@ -5,6 +5,7 @@ import Header from "@/components/Header"
 import SearchBar from "@/components/SearchBar"
 import Results from "@/components/Results"
 import { searchEmoji } from "@/api/search-emoji"
+import { copyToClipboard } from "@/lib/client/copy-to-clipboard"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -36,7 +37,7 @@ export default function Home() {
 
     const randomIndex = Math.floor(Math.random() * results.length)
     const randomEmoji = results[randomIndex]
-    navigator.clipboard.writeText(randomEmoji)
+    copyToClipboard(randomEmoji)
 
     setSearchResults([randomEmoji])
     setHasSearched(true)
