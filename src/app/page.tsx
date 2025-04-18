@@ -58,7 +58,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-gray-900 dark:to-gray-800">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-b from-yellow-50 to-yellow-200 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full max-w-md mx-auto text-center space-y-8">
         <Header />
         {isFetching ? (

@@ -26,7 +26,7 @@ export default function Results({ searchResults }: ResultsProps) {
           ))}
         </div>
       ) : (
-        <p className="text-gray-600 dark:text-gray-400">No emojis found. Try another search!</p>
+        <p className="text-gray-600 dark:text-gray-300">No emojis found. Try another search!</p>
       )}
     </div>
   );
