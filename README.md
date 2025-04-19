@@ -38,6 +38,9 @@ Follow these steps to run the application locally:
 
 ### Running the Development Server
 
+> [!NOTE]
+> The `GROQ_API_KEY` environment variable must be set to an API key from [Groq](https://groq.com/). The free plan is adequate to run this app.
+
 Start the development server with:
 ```bash
 npm run dev
