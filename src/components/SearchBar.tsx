@@ -1,13 +1,13 @@
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Copy, Search } from "lucide-react"
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Copy, Search } from 'lucide-react';
 
 interface SearchBarProps {
-  searchQuery: string
-  setSearchQuery: (query: string) => void
-  handleSearch: () => void
-  handlePickRandom: () => void
-  handleKeyDown: (e: React.KeyboardEvent) => void
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+  handleSearch: () => void;
+  handlePickRandom: () => void;
+  handleKeyDown: (e: React.KeyboardEvent) => void;
 }
 
 export default function SearchBar({
@@ -32,7 +32,10 @@ export default function SearchBar({
         />
       </div>
       <div className="flex space-x-2 justify-center">
-        <Button onClick={handleSearch} className="cursor-pointer bg-yellow-600 hover:bg-yellow-700 text-white dark:bg-yellow-600 dark:hover:bg-yellow-700">
+        <Button
+          onClick={handleSearch}
+          className="cursor-pointer bg-yellow-600 hover:bg-yellow-700 text-white dark:bg-yellow-600 dark:hover:bg-yellow-700"
+        >
           <Search className="mr-0.5 h-4 w-4" />
           Search
         </Button>
@@ -46,5 +49,5 @@ export default function SearchBar({
         </Button>
       </div>
     </div>
-  )
+  );
 }
