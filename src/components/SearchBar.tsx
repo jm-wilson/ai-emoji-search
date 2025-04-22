@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Copy, Search } from 'lucide-react';
+import useAutofocusRef from '@/hooks/useAutofocus';
 
 interface SearchBarProps {
   searchQuery: string;
@@ -17,11 +18,13 @@ export default function SearchBar({
   handlePickRandom,
   handleKeyDown,
 }: SearchBarProps) {
+  const autoFocusRef = useAutofocusRef('md');
+
   return (
     <div className="flex flex-col space-y-4">
       <div className="flex w-full max-w-md items-center space-x-2">
         <Input
-          autoFocus
+          ref={autoFocusRef}
           maxLength={50}
           type="text"
           placeholder="Search for an emoji..."
