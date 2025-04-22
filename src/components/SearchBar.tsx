@@ -26,7 +26,7 @@ export default function SearchBar({
         <Input
           ref={autoFocusRef}
           maxLength={50}
-          type="text"
+          type="search"
           placeholder="Search for an emoji..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
