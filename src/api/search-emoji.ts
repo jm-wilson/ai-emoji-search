@@ -4,6 +4,11 @@ import { Groq } from 'groq-sdk';
 
 const groq = new Groq();
 export async function searchEmoji(query: string): Promise<string[]> {
+  if (!process.env.GROQ_MODEL_NAME) {
+    console.error('GROQ_MODEL_NAME is not set');
+    throw 'GROQ_MODEL_NAME is not set';
+  }
+
   if (query.length > 50) {
     console.error('Query too long');
     throw 'Query too long';
@@ -22,7 +27,7 @@ export async function searchEmoji(query: string): Promise<string[]> {
       messages: [
         {
           role: 'system',
-          content:
+          content: process.env.GROQ_SYSTEM_PROMPT ||
             "Provide 5-10 relevant emojis based on the main idea of the user's message. Do not respond with anything besides the emojis",
         },
         {
@@ -30,7 +35,7 @@ export async function searchEmoji(query: string): Promise<string[]> {
           content: safeQuery,
         },
       ],
-      model: 'llama3-8b-8192',
+      model: process.env.GROQ_MODEL_NAME,
       temperature: 1,
       max_completion_tokens: 128,
       top_p: 1,

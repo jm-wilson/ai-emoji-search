@@ -36,10 +36,22 @@ Follow these steps to run the application locally:
    pnpm install
    ```
 
-### Running the Development Server
+### Environment Variables
 
-> [!NOTE]
-> The `GROQ_API_KEY` environment variable must be set to an API key from [Groq](https://groq.com/). The free plan is adequate to run this app.
+Set the following environment variables for the prompt:
+
+```properties
+# Required - Get your API key from https://groq.com/
+GROQ_API_KEY=your_api_key_here
+
+# Required - The model to use for emoji suggestions
+GROQ_MODEL_NAME=model_name_here
+
+# Optional - Custom system prompt for the AI model
+GROQ_SYSTEM_PROMPT="Provide 5-10 relevant emojis based on the main idea of the user's message. Do not respond with anything besides the emojis."
+```
+
+### Running the Development Server
 
 Start the development server with:
 ```bash
