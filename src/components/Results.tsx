@@ -18,7 +18,7 @@ export default function Results({ searchResults }: ResultsProps) {
                 copyToClipboard(emoji);
               }}
             >
-              <div className="text-3xl mb-1">{emoji}</div>
+              <div className="text-3xl mb-1 font-emoji">{emoji}</div>
               <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 backdrop-opacity-10 backdrop-blur-sm rounded-md transition-opacity">
                 <Copy className="text-white w-6 h-6 " />
               </div>
