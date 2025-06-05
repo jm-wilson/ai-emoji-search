@@ -1,21 +1,15 @@
 import { copyToClipboard } from '@/lib/client/copy-to-clipboard';
 import { Copy } from 'lucide-react';
-import { Noto_Color_Emoji } from 'next/font/google';
 
 interface ResultsProps {
   searchResults: string[];
 }
 
-const notoColorEmoji = Noto_Color_Emoji({
-  subsets: ['emoji'],
-  weight: '400',
-});
-
 export default function Results({ searchResults }: ResultsProps) {
   return (
     <div className="mt-8 p-4 bg-gray-50 rounded-lg shadow-md dark:bg-gray-800 dark:shadow-lg">
       {searchResults.length > 0 ? (
-        <div className={'grid grid-cols-3 gap-4 ' + notoColorEmoji.className}>
+        <div className="grid grid-cols-3 gap-4">
           {searchResults.map((emoji, index) => (
             <div
               key={index}
