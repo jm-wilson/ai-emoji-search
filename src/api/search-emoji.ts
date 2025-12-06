@@ -58,7 +58,7 @@ export async function searchEmoji(query: string): Promise<string[]> {
  * This function is returns an array of emojis contained in a string
  */
 function extractEmojis(str: string): string[] {
-  const emojiRegex = /(\p{Emoji}|\p{Extended_Pictographic})/gu;
+  const emojiRegex = /((\p{Emoji})(\p{Emoji_Modifier})?|\p{Extended_Pictographic})/gu;
   const emojis = str.match(emojiRegex);
   return emojis ? emojis : [];
 }
